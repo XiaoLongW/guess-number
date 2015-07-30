@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js --use_strict",
-    "test": "jasmine ./spec/guess-number-spec.js"
+    "test": "jasmine ./spec/answer-generator-spec.js"
   },
   "dependencies": {
     "lodash": "^3.10.0"
