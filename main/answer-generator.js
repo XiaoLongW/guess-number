@@ -1,8 +1,8 @@
 'use strict';
 var _=require('lodash')
 
-function AnswerGenerator(){
-
+function AnswerGenerator(math){
+  this.math = math;
 }
 
 AnswerGenerator.prototype.answer = function(){
@@ -10,7 +10,7 @@ AnswerGenerator.prototype.answer = function(){
   var count = 0;
 
   for(;;){
-    var a =Math.floor(Math.random()*10);
+    var a =this.math.floor(this.math.random()*10);
     if(_.findIndex(arrNumber, function (oneArr) {return oneArr == a;}) == -1){
        arrNumber.push(a);
        count++;

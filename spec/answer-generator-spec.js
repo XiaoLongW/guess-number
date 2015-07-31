@@ -4,33 +4,36 @@ var Answer = require('../main/answer-generator.js');
 
 describe('AnswerGenerator', function() {
   describe('#answer()', function() {
-    var answer;
-     beforeEach(function(){
-       answer = new Answer();
-     });
+
 
     it('number should not repeat',function(){
-      var arr = answer.answer();
-      var bo = (arr[0]!=arr[1]&&arr[0]!=arr[2]&&arr[0]!=arr[3]&&arr[0]!=arr[4]&&arr[1]!=arr[2]&&arr[1]!=arr[3]&&arr[2]!=arr[3]);
-      expect(bo).toBe(true);
-    })
+     var x=0;
+     spyOn(Math,'random').and.callFake(function(){
+         var arr = [0.1,0.1,0.2,0.3,0.4];
+         return arr[x++];
+     });
 
-    it('the type of return mast is number and integer',function(){
+      var answer = new Answer(Math);
       var arr = answer.answer();
-      var bo = ((typeof((arr[0]-0))=='number')&&(typeof((arr[1]-0))=='number')&&typeof(typeof((arr[2]-0))=='number')&&(typeof((arr[3]-0))=='number'));
-
-      expect(bo).toBe(true);
+      expect(arr).toBe('1234');
     })
 
     it("number's length should be 4",function(){
-      var arr = answer.answer();
-      var length = arr.length;
-      expect(length).toBe(4);
+      var answer = new Answer(Math);
+      expect(answer.answer().length).toBe(4);
     })
 
     it('number should be random',function(){
-      var bo =(answer.answer() == answer.answer());
-      expect(!bo).toBe(true);
+      var x=0;
+      spyOn(Math,'random').and.callFake(function(){
+           var arr = [0.1,0.2,0.3,0.4];
+           return arr[x++];
+      });
+
+      var answer = new Answer(Math);
+      var arr = answer.answer();
+      expect(arr).toBe('1234');
     })
+
   })
 })

@@ -2,10 +2,10 @@
 
 var _=require('lodash')
 
-function Guess(){
+function CompareNumber(){
 }
 
-Guess.prototype.game=function(input,answer){
+CompareNumber.prototype.game=function(input,answer){
   var aCount=0;
   var bCount=0;
 
@@ -21,4 +21,4 @@ Guess.prototype.game=function(input,answer){
   return aCount+'A'+bCount+'B';
 }
 
-module.exports = Guess;
+module.exports = CompareNumber;
