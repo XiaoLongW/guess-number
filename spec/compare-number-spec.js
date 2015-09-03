@@ -3,11 +3,13 @@
 var CompareNumber = require('../main/compare-number.js');
 
 describe('guess-number', function() {
+
   describe('#game()', function() {
     var compareNnumber;
     beforeEach(function(){
       compareNnumber = new CompareNumber();
     });
+
     it('shuld return 0A0B', function() {
       expect(compareNnumber.game('5678','1234')).toBe('0A0B');
     });
