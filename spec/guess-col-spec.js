@@ -14,13 +14,13 @@ describe("Guess",function(){
     beforeEach(function(){
       var x=0;
       spyOn(Math,'random').and.callFake(function(){
-           var arr = [0.1,0.2,0.3,0.4];
-           return arr[x++];
+        var arr = [0.1,0.2,0.3,0.4];
+        return arr[x++];
       });
-      answer = new Answer(Math)
+      answer = new Answer(Math);
       compare = new CompareNumber();
       guess = new Guess(answer,compare);
-    })
+    });
 
     it('shuld return 0A0B', function() {
       expect(guess.guessRandom('5678')).toBe('0A0B');
